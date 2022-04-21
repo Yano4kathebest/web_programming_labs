@@ -67,3 +67,9 @@ nav .searchbox button {
 nav .searchbox button:hover {
     opacity: 1;
 }
+
+footer {
+    padding: 25px;
+    color: #eee;
+    background-color: #333;
+}
