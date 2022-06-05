@@ -54,13 +54,37 @@ function notReadyAlert() {
                 menu.appendChild(menuItem);
             }
         }
+        
+        function generateCards() {
+            let items = [
+                {href: 'product1.html', text: 'Виниловая пластинка "David Bowie"', image: 'david.jpg', price: 7000},
+                {href: 'product2.html', text: 'Виниловая пластинка "Queen"', image: 'queen.jpg', price: 10000},
+                {href: 'product3.html', text: 'Виниловая пластинка "Depeche Mode"', image: 'depeche.jpeg', price: 6800},
+            ];
+
+            let main = document.getElementsByTagName('main')[0];
+            for(let i=0; i<items.length; i++) {
+                let card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <a href="${items[i].href}">Виниловая пластинка "David Bowie"
+                        <div class="image"><img src="${items[i].image}"></div>
+                        <div class="product name">${items[i].text}</div>
+                        <div class="price">${items[i].price}&#8381;</div>
+                    </a>`;
+
+                main.appendChild(card);
+
+            }
+        }
 
         function loaded() {
             let searchbox = document.getElementById('search');
             searchbox.addEventListener('keydown', function (key) {
                 if(key.key == 'Enter')
-                    search();
+                search();
             });
 
             generateMenu();
+            generateCards();
         }
